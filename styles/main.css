@@ -1,11 +1,5 @@
 /*// ZEROLIVESLEFT //
 
-H1) site title
-H2) section title
-H3) game/article title
-H4) game/article tagline
-H5) tags
-
 // Breakpoints //
 
 Mobile
@@ -13,3 +7,289 @@ Tablet
 Desktop
 
 */
+
+/*// RESET //*/
+
+* {
+	box-sizing: border-box;
+}
+
+section {
+	margin: 0;
+}
+
+/* FUTURE remove all * selectors, main overflow hidden, font-size 16px? */
+
+figure {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+/*////////////////////
+	TYPOGRAPHY
+////////////////////*/
+
+/*// FONTS //*/
+
+@font-face {
+	font-family: d-din;
+	src: url(../fonts/D-DIN.otf)
+}
+
+@font-face {
+	font-family: Brandon_thin;
+	src: url(../fonts/Brandon_thin.otf)
+}
+
+@font-face {
+	font-family: Brandon_reg;
+	src: url(../fonts/Brandon_reg.otf)
+}
+
+
+/*// FONT STYLING //*/
+
+* {
+	font-family: d-din;
+}
+
+html {
+	font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	text-transform: uppercase;
+}
+
+/* Header title */
+h1 {
+	font-size: 4rem;
+}
+
+/* Section title */
+h2 {
+	font-size: 4rem;
+	font-family: Brandon_thin;
+}
+
+/* Featured game section title */
+.featured-game h2 {
+	font-size: 3rem;
+}
+
+/* Featured game title */
+.featured-game h3 {
+	font-size: 4rem;
+}
+
+/* Article title */
+.featured-article h3,
+.featured-idea h3 {
+	font-size: 3rem;
+}
+
+h4 {
+	font-size: 2.5rem;
+}
+
+/* Feed game title */
+#home-feed h3 {
+	font-family: Brandon_thin;
+	font-size: 3rem;
+	text-transform: uppercase;
+}
+
+date,
+span,
+p,
+a {
+	font-size: 2rem;
+}
+
+/*////////////////////
+	COLOUR
+////////////////////*/
+
+html {
+	background-color: var(--background-light);
+}
+
+a {
+	color: var(--font-main);
+}
+
+.tag-cd {
+	color: var(--tag-green);
+}
+.tag-ta {
+	color: var(--brand-red);
+}
+.tag-vb {
+	color: var(--tag-blue);
+}
+.tag-eg {
+	color: var(--tag-orange);
+}
+.tag-ee {
+	color: var(--brand-purple);
+}
+.tag-tc {
+	color: var(--tag-grey)
+}
+
+/*// VARIABLES //*/
+
+:root {
+	--background-light: #f4f4f4;
+	--background-dark: lightgrey;
+	--font-main: black;
+	--brand-red: red;
+	--brand-purple: purple;
+	--brand-grey: grey;
+	--tag-blue: blue;
+	--tag-green: green;
+	--tag-orange: orange;
+	--tag-grey: lightgrey;
+}
+
+/*////////////////////
+	IMAGE
+////////////////////*/
+
+/*// MOBILE //*/
+
+.img-block {
+	width: 100%;
+	height: auto;
+	z-index: -5;
+}
+
+.img-block img {
+	width: 100%;
+}
+
+.img-wide {
+	width: 100%;
+}
+
+.img-wide img {
+	width: 100%;
+	height: auto;
+}
+
+/*////////////////////
+	HEADER
+////////////////////*/
+
+.top-bar {
+	background-color: var(--brand-grey);
+	height: 2em;
+}
+
+/*////////////////////
+	FEATURED STYLING
+////////////////////*/
+
+.section-featured h2 {
+	border-bottom: 2px solid black;
+	padding-bottom: .2em;
+}
+
+.featured-game h2 {
+	border-bottom-color: white;
+	
+}
+
+.featured-idea {
+	background-color: darkgray;
+	color: white;
+}
+
+.featured-article h2 {
+	padding-left: 1em;
+}
+
+.featured-idea h2 {
+	border-color: white;
+	padding-left: 1em;
+}
+
+/*////////////////////
+	SITE-WIDE STYLING
+////////////////////*/
+
+h2 {
+	margin: .6em 0;
+}
+
+h3 {
+	margin: .5em 0;
+}
+
+h4 {
+	margin: .4em 0;
+}
+
+/* SITE-WIDE CLASSES */
+
+.block {
+	margin: 3px 0;
+	position: relative;
+}
+
+.content {
+	padding: 0 4em 2em 4em;
+	z-index: 5;
+}
+
+.flag h5 {
+	display: inline-block;
+	background-color: blue;
+	margin-top: 0;
+	padding: .4em .5em;
+	margin-right: .2em;
+}
+
+.overlay {
+	position: absolute;
+	bottom: 0;
+	color: white;
+	z-index: 5;
+}
+
+/*////////////////////
+	FEED STYLING
+////////////////////*/
+
+
+.feed .content {
+	background-color: rgba(0, 0, 0, .5);
+}
+
+.feed > h2 {
+	display: none;
+}
+
+.feed-info {
+	border-top: 1px solid white;
+}
+
+.line-tags a {
+	font-style: italic;
+}
