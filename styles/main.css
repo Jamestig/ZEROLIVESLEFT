@@ -14,6 +14,10 @@ Desktop >= 1366px
 	box-sizing: border-box;
 }
 
+main {
+	overflow: hidden;
+}
+
 section {
 	margin: 0;
 }
@@ -68,6 +72,7 @@ li {
 html {
 	font-size: 16px;
 }
+
 @media screen and (max-width: 330px) {
 	html {
 		font-size: 14px;
@@ -101,7 +106,7 @@ h5 {
 .top-title span {
 	font-family: Brandon_reg;
 	letter-spacing: .08em;
-	font-size: 2rem;
+	font-size: 1.8rem;
 }
 
 /* Section title */
@@ -157,9 +162,13 @@ a {
 	font-size: .95rem;
 }
 
-/*// Tablet response //*/
+/*// Widescreen response //*/
 
-@media screen and (min-width: 600px) {}
+@media screen and (min-width: 1280px) {
+	html {
+		font-size: 28px;
+	}
+}
 
 /*////////////////////
 	COLOUR
@@ -258,17 +267,15 @@ a {
 	flex-flow: column;
 }
 
-.top-header .wrapper::after {
+.top-header .bottom-nav::after {
 	content: '';
-	height: 38px;
+	height: 100%;
 	position: absolute;
-	border-right: 1px solid var(--background-dark);
-	background-color: var(--background-dark);
-	bottom: 0;
+	border-right: 2px solid var(--background-dark);
+	top: 0;
+	left: 0;
 	transform: skewX(20deg);
-	width: 12%;
-	margin-left: -5px;
-	z-index: -100;
+	width: 15%;
 }
 
 .top-header nav {
@@ -277,7 +284,6 @@ a {
 }
 
 .top-header nav a {
-	font-size: 1.2rem;
 	text-transform: uppercase;
 	display: inline-block;
 	padding: .4em;
@@ -299,7 +305,6 @@ a {
 
 .top-header .sm-icons a {
 	padding: .4em;
-	font-size: 1.3rem;
 }
 
 .top-title {
@@ -316,6 +321,7 @@ a {
 }
 
 .bottom-nav {
+	position: relative;
 	border-top: 2px solid var(--background-dark);
 	justify-content: flex-end;
 	padding-right: 3%;
@@ -323,58 +329,55 @@ a {
 
 .bottom-nav a {
 	font-family: Brandon_reg;
-	margin-left: 3%;
+	margin: 0 2vw;
 	letter-spacing: .05em;
 }
 
 /*// Tablet response //*/
 
-@media screen and (min-width: 450px){
-	
+@media screen and (min-width: 450px) {
+
+	.top-header a {
+		letter-spacing: .1em;
+	}
+
 	.top-nav {
 		justify-content: space-between;
 		flex-basis: 100%;
 	}
-	
+
 	.top-header .sm-icons {
 		text-align: right;
-	}
-	
-	.top-nav a {
-		letter-spacing: .1em;
 	}
 
 	.top-title {
 		text-align: left;
 		padding-left: 15vw;
-		margin: .5em 0;
+		margin: .1em 0;
 	}
-	
+
 	.bottom-nav {
 		justify-content: flex-start;
 		padding-right: 0;
 		padding-left: 15vw;
 	}
+}
 
-	.bottom-nav a {
-		margin: 0 3%;
-		letter-spacing: .1em;
+@media screen and (min-width:450px) and (max-width: 767px) {
+	.top-nav a {
+		margin: 0 1vw;
 	}
 }
 
 /*// Wide response //*/
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
 	.top-header {
 		position: static;
 	}
 
 	.top-header .wrapper {
 		flex-flow: row wrap;
-	}
-	
-	.top-header nav a {
-		padding: 1em;
 	}
 
 	.top-nav {
@@ -386,27 +389,25 @@ a {
 		border-top: 1px solid var(--background-dark);
 		padding-left: 0;
 	}
-	
+
 	.top-nav a {
 		color: var(--font-main);
-		font-size: 1.2rem;
 	}
-	
-	.contact-links {
-		margin-right: 5%;
+
+	.top-header .contact-links {
+		margin-right: 2vw;
 	}
-	
+
 	.top-header .sm-icons a {
-		font-size: 1.5rem;
-		padding: .7em;
+		font-size: 1.1rem;
 	}
-	
+
 	.top-title {
 		order: 0;
 		flex-basis: 100%;
-		margin: .7em 0;
+		margin: .2em 0;
 	}
-	
+
 	.bottom-nav {
 		order: 1;
 		flex-basis: 60%;
@@ -414,19 +415,36 @@ a {
 		padding-right: 0;
 		padding-left: 15vw;
 	}
-
 }
 
 /*////////////////////
 	FEATURED STYLING
 ////////////////////*/
-
+/*
+.test {
+	background-image:url(../images/placeholder/featured_game_hd/ori_810_01.jpg);
+	height: 50vh;
+}
+.test .diagonal-content {
+	background: rgba(0,0,0, .5);
+			clip-path: polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%);
+	height: 100%;
+}
+.test .diagonal-content {
+	flex-basis: 40%;
+}
+.test .flex-container {
+	justify-content: flex-start;
+}
+.featured-game {
+	height: 50vh;
+}
+*/
 .section-featured {
 	margin-top: 90px;
 }
 
 .section-featured h2 {
-	border-bottom: 1px solid var(--font-main);
 	padding-bottom: .2em;
 }
 
@@ -436,16 +454,10 @@ a {
 
 .featured-game h2 {
 	margin-bottom: .1em;
+	padding-left: 8%;
 }
 
-.featured-game h2 {
-	border-bottom-color: var(--background-light);
-	margin: 0 -10%;
-	padding-left: 10%;
-}
-
-.featured-game .content {
-	padding-top: 10%;
+.featured-game .overlay {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.4+30,0.65+100 */
 	background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.65) 100%);
 	/* FF3.6-15 */
@@ -453,24 +465,29 @@ a {
 	/* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.65) 100%);
 	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
 	/* IE6-9 */
 }
 
-.featured-idea {
-	background-color: var(--brand-grey);
-	color: white;
+.featured-game hr {
+	width: 100%;
 }
 
 .featured-article,
 .featured-article p {
 	color: var(--font-main);
+	background-color: white;
 }
 
 .featured-article h2,
 .featured-idea h2 {
 	padding-left: 8%;
 	padding-top: .3em;
+}
+
+.featured-idea {
+	background-color: var(--brand-grey);
+	color: white;
 }
 
 .featured-idea h2 {
@@ -484,10 +501,76 @@ a {
 
 /* Wide response */
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
+
 	.section-featured {
 		margin-top: 0;
 	}
+
+	.flex-container {
+		display: flex;
+		flex-flow: row;
+		justify-content: center;
+		position: relative;
+	}
+
+	.diagonal-figure {
+		flex-basis: 50%;
+		overflow: hidden;
+		z-index: 10;
+	}
+
+	.diagonal-figure img {
+		height: 60vh;
+	}
+	
+	.diagonal-content {
+		flex-basis: 50%;
+		z-index: 3;
+	}
+
+	.featured-preview figure {
+		height: 100%;
+	}
+
+	.featured-game .overlay {
+		display: flex;
+		flex-flow: column;
+		justify-content: flex-end;
+		height: 100%;
+		width: 40%;
+		padding: 0;
+		background: rgba(0,0,0,0.6);
+		z-index: 10;
+		clip-path: polygon(0% 0%, 75% 0%, 100% 100%, 0% 100%);
+	}
+
+	.featured-game h2 {
+		margin: 0;
+		
+	}
+
+	.featured-article figure {
+		clip-path: polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%);
+	}
+	
+	.featured-article hr {
+		margin-left: -20%;
+	}
+	
+	.featured-idea hr {
+		margin-right: -5%;
+	}
+
+	.featured-idea figure {
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 20% 100%)
+	}
+
+	.featured-idea .diagonal-figure {
+		order: 2;
+		flex-basis: 50%;
+	}
+
 }
 
 /*////////////////////
@@ -514,11 +597,13 @@ h5 {
 
 .block {
 	position: relative;
+	height: 60vh;
 }
 
 .content {
 	padding: .2em 8%;
 	z-index: 5;
+	z-index: 10;
 }
 
 h5[class^="flag"] {
