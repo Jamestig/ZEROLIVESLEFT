@@ -1,12 +1,6 @@
-/*// ZEROLIVESLEFT //
-
-// Breakpoints //
-
-Mobile < 600px
-Tablet  >= 600px
-Desktop >= 1366px
-
-*/
+/*////////////////////
+	ZEROLIVESLEFT
+////////////////////*/
 
 /*// RESET //*/
 
@@ -44,6 +38,60 @@ ul {
 
 li {
 	list-style-type: none;
+}
+
+/*////////////////////
+	VARIABLES
+////////////////////*/
+
+:root {
+	--background-light: #f6f6f6;
+	--background-dark: #ececec;
+	--font-main: #666666;
+	--font-grey: #828282;
+	--font-light: #eaeaea;
+	--font-white: white;
+	--brand-red: #bf3e3c;
+	--brand-purple: #6e4b74;
+	--brand-grey: #424242;
+	--tag-blue: blue;
+	--tag-green: green;
+	--tag-orange: orange;
+	--tag-grey: lightgrey;
+}
+
+/*// COLOUR //*/
+
+html {
+	background-color: var(--background-light);
+}
+
+a {
+	color: var(--font-main);
+}
+
+.tag-cd {
+	color: var(--tag-green);
+}
+
+.tag-ta {
+	color: var(--brand-red);
+}
+
+.tag-vb {
+	color: var(--tag-blue);
+}
+
+.tag-eg {
+	color: var(--tag-orange);
+}
+
+.tag-ee {
+	color: var(--brand-purple);
+}
+
+.tag-tc {
+	color: var(--tag-grey)
 }
 
 /*////////////////////
@@ -169,61 +217,6 @@ a {
 		font-size: 24px;
 	}
 }
-
-/*////////////////////
-	COLOUR
-////////////////////*/
-
-html {
-	background-color: var(--background-light);
-}
-
-a {
-	color: var(--font-main);
-}
-
-.tag-cd {
-	color: var(--tag-green);
-}
-
-.tag-ta {
-	color: var(--brand-red);
-}
-
-.tag-vb {
-	color: var(--tag-blue);
-}
-
-.tag-eg {
-	color: var(--tag-orange);
-}
-
-.tag-ee {
-	color: var(--brand-purple);
-}
-
-.tag-tc {
-	color: var(--tag-grey)
-}
-
-/*// VARIABLES //*/
-
-:root {
-	--background-light: #f6f6f6;
-	--background-dark: #ececec;
-	--font-main: #666666;
-	--font-grey: #828282;
-	--font-light: #eaeaea;
-	--font-white: white;
-	--brand-red: #bf3e3c;
-	--brand-purple: #6e4b74;
-	--brand-grey: #424242;
-	--tag-blue: blue;
-	--tag-green: green;
-	--tag-orange: orange;
-	--tag-grey: lightgrey;
-}
-
 
 /*////////////////////
 	SITE-WIDE STYLING

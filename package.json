@@ -6,15 +6,15 @@
 	"scripts": {
 		"build:compile": "node-sass --source-map true src/scss/ -o dist/css",
 		"build:autoprefixer": "postcss dist/css/*.css --use autoprefixer -d dist/css",
-		"sass:watch": "node-sass --watch src/scss -o dist/css"
+		"sass:watch": "node-sass --watch --source-map true src/scss -o dist/css"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Jamestig/ZEROLIVESLEFT.git"
 	},
 	"keywords": [
-    "game"
-  ],
+		"game"
+	],
 	"author": "Mothy James",
 	"license": "ISC",
 	"bugs": {
@@ -25,6 +25,6 @@
 		"autoprefixer": "^9.3.0",
 		"node-sass": "^4.9.4",
 		"npm-run-all": "^4.1.3",
-		"postcss": "^7.0.5"
+		"postcss-cli": "^6.0.1"
 	}
 }
