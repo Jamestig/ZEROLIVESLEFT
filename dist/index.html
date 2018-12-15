@@ -11,32 +11,30 @@
 </head>
 
 <body>
-	<header class="top-header">
-		<div class="wrapper">
-			<nav class="top-nav">
-				<div class="contact-links">
+	<header class="header">
+			<nav class="header__nav1">
+				<div class="header__contact">
 					<a href="">About</a>
 					<a href="">Contact</a>
 				</div>
-				<div class="sm-icons">
+				<div class="header__social">
 					<a href="" class="fab fa-steam-symbol"></a>
 					<a href="" class="fab fa-twitter"></a>
 					<a href="" class="fab fa-twitch"></a>
 				</div>
 			</nav>
-			<h1 class="top-title"><span>ZERO LIV</span><span>ES LEFT</span></h1>
-			<nav class="bottom-nav">
+			<h1 class="header__title"><span>ZERO LIV</span><span>ES LEFT</span></h1>
+			<nav class="header__nav2">
 				<a href="">Games</a>
 				<a href="">Articles</a>
 				<a href="">Ideas</a>
 			</nav>
-		</div>
 	</header>
 
-	<main id="home-main">
-		<section id="home-featured" class="section-featured">
-			<div class="featured-game block">
-				<article id="game-subnautica" class="featured-preview">
+	<main class="main">
+		<section class="featured">
+			<div class="featured__game block">
+				<article class="featured__preview">
 					<div class="overlay">
 						<h2>Subnautica</h2>
 						<hr>
@@ -51,10 +49,10 @@
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet ratione sequi dolorem numquam ea.</p>
 						</div>
 					</div>
-					<figure class="img-block">
+					<figure class="featured__image">
 						<picture>
-							<source srcset="img/placeholder/featured_game_hd/ori_810_01.jpg" media="(min-width: 768px)">
-							<source srcset="img/placeholder/tablet/ori_768_01.jpg" media="(min-width: 768px)">
+							<source srcset="img/placeholder/featured_game_hd/ori_810_01.jpg" media="(min-width: 500px)">
+							<source srcset="img/placeholder/tablet/ori_768_01.jpg" media="(min-width: 450px)">
 							<img src="img/placeholder/mobile/square/ori_02.jpg" alt="">
 						</picture>
 					</figure>
@@ -62,9 +60,9 @@
 			</div>
 <!--
 				<div class="featured-idea test block">
-				<article id="idea-health_system" class="featured-preview">
-					<div class="flex-container">
-						<div class="diagonal-content">
+				<article id="idea-health_system" class="featured__preview">
+					<div class="featured__container">
+						<div class="featured__content">
 							<h2>Fresh Idea</h2>
 							<hr>
 							<div class="content">
@@ -82,10 +80,10 @@
 				</article>
 			</div>
 -->
-			<div class="featured-article block">
-				<article id="article-immersion" class="featured-preview">
-					<div class="flex-container">
-						<div class="diagonal-figure">
+			<div class="featured__article block">
+				<article class="featured__preview">
+					<div class="featured__container">
+						<div class="featured__image">
 							<figure>
 								<picture>
 									<source srcset="img/placeholder/tablet/atomic_720_01.jpg" media="(min-width: 768px)">
@@ -93,7 +91,7 @@
 								</picture>
 							</figure>
 						</div>
-						<div class="diagonal-content">
+						<div class="featured__content">
 							<h2>Latest Article</h2>
 							<hr>
 							<div class="content">
@@ -111,10 +109,10 @@
 				</article>
 			</div>
 
-			<div class="featured-idea block">
-				<article id="idea-health_system" class="featured-preview">
-					<div class="flex-container">
-						<div class="diagonal-figure">
+			<div class="featured__idea block">
+				<article class="featured__preview">
+					<div class="featured__container">
+						<div class="featured__image">
 							<figure>
 								<picture>
 									<source>
@@ -122,7 +120,7 @@
 								</picture>
 							</figure>
 						</div>
-						<div class="diagonal-content">
+						<div class="featured__content">
 							<h2>Fresh Idea</h2>
 							<hr>
 							<div class="content">
@@ -144,7 +142,7 @@
 		<section id="home-feed" class="feed">
 			<h2>Latest Everything</h2>
 
-			<article id="game-journey" class="feed-preview feed-1">
+			<article class="feed-preview block feed-1">
 				<div class="content overlay">
 					<h3>Legend of Zelda</h3>
 					<div class="feed-info">
@@ -160,7 +158,7 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure rerum magnam necessitatibus illo sunt fuga, pariatur repellendus aut velit.</p>
 				</div>
 
-				<figure class="img-block">
+				<figure class="featured__image">
 					<picture>
 						<source srcset="img/placeholder/tablet/journey_768_01.jpg" media="(min-width: 600px)">
 						<img src="img/placeholder/mobile/square/journey_01.jpg" alt="">
@@ -168,7 +166,7 @@
 				</figure>
 			</article>
 
-			<article id="game-lbw" class="feed-preview">
+			<article class="feed-preview block">
 				<div class="content overlay">
 					<h3>A Link Between Worlds</h3>
 					<div class="feed-info">
@@ -182,7 +180,7 @@
 					</div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure rerum magnam necessitatibus illo sunt fuga, pariatur repellendus aut velit.</p>
 				</div>
-				<figure class="img-block">
+				<figure class="featured__image">
 					<picture>
 						<source>
 						<img src="img/placeholder/mobile/square/warframe_02.jpg" alt="">

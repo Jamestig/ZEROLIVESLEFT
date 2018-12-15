@@ -8,10 +8,6 @@
 	box-sizing: border-box;
 }
 
-main {
-	overflow: hidden;
-}
-
 section {
 	margin: 0;
 }
@@ -149,13 +145,6 @@ h5 {
 	letter-spacing: .05em;
 }
 
-/* Header title */
-
-.top-title span {
-	font-family: Brandon_reg;
-	letter-spacing: .08em;
-	font-size: 1.8rem;
-}
 
 /* Section title */
 
@@ -166,22 +155,22 @@ h2 {
 
 /* Featured game title */
 
-.featured-game h2 {
+.featured__game h2 {
 	font-size: 1.5rem;
 }
 
 /* Featured article title */
 
-.featured-article h2,
-.featured-idea h2 {
+.featured__article h2,
+.featured__idea h2 {
 	font-size: 1.2em;
 	font-family: Brandon_thin;
 }
 
 /* Article title */
 
-.featured-article h3,
-.featured-idea h3 {
+.featured__article h3,
+.featured__idea h3 {
 	font-size: 1.25rem;
 }
 
@@ -203,20 +192,6 @@ h5 {
 	text-transform: uppercase;
 }
 
-date,
-span,
-p,
-a {
-	font-size: .95rem;
-}
-
-/*// Widescreen response //*/
-
-@media screen and (min-width: 1280px) {
-	html {
-		font-size: 24px;
-	}
-}
 
 /*////////////////////
 	SITE-WIDE STYLING
@@ -290,54 +265,38 @@ h5[class^="flag"] {
 
 /*// MOBILE //*/
 
-.img-block {
+.featured__image {
 	width: 100%;
 	height: auto;
 	z-index: -5;
 }
 
-.img-block img {
-	width: 100%;
-}
-
-.img-wide {
-	width: 100%;
-}
-
-.diagonal-figure img {
+.featured__image img {
 	width: 100%;
 	height: auto;
 }
 
 /* Ratios */
 
-@media screen and (min-width: 450px) {
+@mixin ratio-change($blockHeight, $imgWidth, $imgHeight) {
 	.block {
-		height: 30vh;
-	}
-
-	.diagonal-figure {
-		height: 30vh;
-	}
-
-	.diagonal-figure img {
-		width: 100%;
-		height: auto;
+		height: $blockHeight;
+		.featured__image {
+			height: $blockHeight;
+			img {
+				width: $imgWidth;
+				height: $imgHeight;
+			}
+		}
 	}
 }
 
+@media screen and (min-width: 450px) {
+	@include ratio-change(30vh, 100%, auto);
+}
+
 @media screen and (max-aspect-ratio: 1/1) and (min-width: 450px) {
-	.block {
-		height: 25vh;
-	}
-
-	.diagonal-figure {
-		height: 25vh;
-	}
-
-	.diagonal-figure img {
-		width: auto;
-	}
+	@include ratio-change(25vh, auto, 100%);
 }
 
 @media screen and (max-aspect-ratio: 3/4) and (min-width: 450px) {
@@ -345,11 +304,11 @@ h5[class^="flag"] {
 		height: 25vh;
 	}
 
-	.diagonal-figure {
+	.featured__image {
 		height: 25vh;
 	}
 
-	.diagonal-figure img {
+	.featured__image img {
 		height: 100%;
 		width: auto;
 	}
@@ -360,11 +319,11 @@ h5[class^="flag"] {
 		height: 50vh;
 	}
 
-	.diagonal-figure {
+	.featured__image {
 		height: 50vh;
 	}
 
-	.diagonal-figure img {
+	.featured__image img {
 		height: 100%;
 		width: auto;
 	}
@@ -375,11 +334,11 @@ h5[class^="flag"] {
 		height: 40vh;
 	}
 
-	.diagonal-figure {
+	.featured__image {
 		height: 40vh;
 	}
 
-	.diagonal-figure img {
+	.featured__image img {
 		min-width: 100%;
 		min-height: 100%;
 		height: auto;
@@ -391,11 +350,11 @@ h5[class^="flag"] {
 		height: 60vh;
 	}
 
-	.diagonal-figure {
+	.featured__image {
 		height: 60vh;
 	}
 
-	.diagonal-figure img {
+	.featured__image img {
 		height: 100%;
 	}
 
@@ -405,118 +364,123 @@ h5[class^="flag"] {
 	HEADER
 ////////////////////*/
 
-.top-header {
+.header {
 	position: fixed;
 	top: 0;
 	width: 100%;
 	background-color: var(--background-light);
 	z-index: 100;
-}
-
-.top-header .wrapper {
-	position: relative;
 	display: flex;
 	flex-flow: column;
-}
 
-.top-header .bottom-nav::after {
-	content: '';
-	height: 100%;
-	position: absolute;
-	border-right: 2px solid var(--background-dark);
-	top: 0;
-	left: 0;
-	transform: skewX(20deg);
-	width: 15%;
-}
+	nav {
+		display: flex;
+		flex-flow: row;
 
-.top-header nav {
-	display: flex;
-	flex-flow: row;
-}
+		a {
+			text-transform: uppercase;
+			display: inline-block;
+			padding: .4em;
+		}
+	}
 
-.top-header nav a {
-	text-transform: uppercase;
-	display: inline-block;
-	padding: .4em;
-}
+	&__nav1 {
+		background-color: var(--brand-grey);
+		justify-content: space-between;
+		padding: 0 3%;
 
-.top-nav {
-	background-color: var(--brand-grey);
-	justify-content: space-between;
-	padding: 0 3%;
-}
+		a {
+			color: white;
+		}
 
-.top-nav a {
-	color: white;
-}
+		.header__contact a {
+			font-family: Brandon_reg;
+		}
 
-.top-header .contact-links a {
-	font-family: Brandon_reg;
-}
+		.header__social a {
+			padding: .4em;
+		}
+	}
 
-.top-header .sm-icons a {
-	padding: .4em;
-}
+	&__title {
+		text-align: center;
+		margin: .2em 0;
+	}
 
-.top-title {
-	text-align: center;
-	margin: .2em 0;
-}
+	span {
+		font-family: Brandon_reg;
+		letter-spacing: .08em;
+		font-size: 1.8rem;
+	}
 
-.top-title span:first-of-type {
-	color: var(--brand-red);
-}
+	span:first-of-type {
+		color: var(--brand-red);
+	}
 
-.top-title span:last-of-type {
-	color: var(--brand-purple);
-}
+	span:last-of-type {
+		color: var(--brand-purple);
+	}
 
-.bottom-nav {
-	position: relative;
-	border-top: 2px solid var(--background-dark);
-	justify-content: flex-end;
-	padding-right: 3%;
-}
+	&__nav2 {
+		position: relative;
+		border-top: 2px solid var(--background-dark);
+		justify-content: flex-end;
+		padding-right: 3%;
 
-.bottom-nav a {
-	font-family: Brandon_reg;
-	margin: 0 2vw;
-	letter-spacing: .05em;
+		a {
+			font-family: Brandon_reg;
+			margin: 0 2vw;
+			letter-spacing: .05em;
+		}
+
+		&::after {
+			content: '';
+			height: 100%;
+			position: absolute;
+			border-right: 2px solid var(--background-dark);
+			top: 0;
+			left: 0;
+			transform: skewX(20deg);
+			width: 15%;
+		}
+	}
 }
 
 /*// Tablet response //*/
 
 @media screen and (min-width: 450px) {
 
-	.top-header a {
-		letter-spacing: .1em;
-	}
+	.header {
 
-	.top-nav {
-		justify-content: space-between;
-		flex-basis: 100%;
-	}
+		a {
+			letter-spacing: .1em;
+		}
 
-	.top-header .sm-icons {
-		text-align: right;
-	}
+		&__nav1 {
+			justify-content: space-between;
+			flex-basis: 100%;
+		}
 
-	.top-title {
-		text-align: left;
-		padding-left: 15vw;
-		margin: .1em 0;
-	}
+		&__social {
+			text-align: right;
+		}
 
-	.bottom-nav {
-		justify-content: flex-start;
-		padding-right: 0;
-		padding-left: 15vw;
+		&__title {
+			text-align: left;
+			padding-left: 15vw;
+			margin: .1em 0;
+		}
+
+		&__nav2 {
+			justify-content: flex-start;
+			padding-right: 0;
+			padding-left: 15vw;
+		}
 	}
 }
 
 @media screen and (min-width:450px) and (max-width: 767px) {
-	.top-nav a {
+	.header__nav1 a {
 		margin: 0 1vw;
 	}
 }
@@ -524,48 +488,45 @@ h5[class^="flag"] {
 /*// Wide response //*/
 
 @media screen and (min-width: 768px) {
-	.top-header {
+	.header {
 		position: static;
-	}
-
-	.top-header .wrapper {
 		flex-flow: row wrap;
-	}
 
-	.top-nav {
-		order: 2;
-		flex-basis: 40%;
-		justify-content: flex-end;
-		background-color: var(--background-light);
-		color: var(--font-dark);
-		border-top: 1px solid var(--background-dark);
-		padding-left: 0;
-	}
+		&__nav1 {
+			order: 2;
+			flex-basis: 40%;
+			justify-content: flex-end;
+			background-color: var(--background-light);
+			color: var(--font-dark);
+			border-top: 1px solid var(--background-dark);
+			padding-left: 0;
 
-	.top-nav a {
-		color: var(--font-main);
-	}
+			a {
+				color: var(--font-main);
+			}
+		}
 
-	.top-header .contact-links {
-		margin-right: 2vw;
-	}
+		&__contact {
+			margin-right: 2vw;
+		}
 
-	.top-header .sm-icons a {
-		font-size: 1.1rem;
-	}
+		&__social a {
+			font-size: 1.1rem;
+		}
 
-	.top-title {
-		order: 0;
-		flex-basis: 100%;
-		margin: .2em 0;
-	}
+		&__title {
+			order: 0;
+			flex-basis: 100%;
+			margin: .2em 0;
+		}
 
-	.bottom-nav {
-		order: 1;
-		flex-basis: 60%;
-		justify-content: flex-start;
-		padding-right: 0;
-		padding-left: 15vw;
+		&__nav2 {
+			order: 1;
+			flex-basis: 60%;
+			justify-content: flex-start;
+			padding-right: 0;
+			padding-left: 15vw;
+		}
 	}
 }
 
@@ -573,71 +534,73 @@ h5[class^="flag"] {
 	FEATURED STYLING
 ////////////////////*/
 
-.section-featured {
+.featured {
 	margin-top: 90px;
+
+	h2 {
+		padding-bottom: .2em;
+	}
+
+	p {
+		color: var(--font-light);
+	}
+
+	&__game {
+		h2 {
+			margin-bottom: .1em;
+			padding-left: 8%;
+		}
+
+		.overlay {
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.4+30,0.65+100 */
+			background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.65) 100%);
+			/* FF3.6-15 */
+			background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.65) 100%);
+			/* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.65) 100%);
+			/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
+
+			/* IE6-9 */
+			.content {
+				margin-bottom: 2em;
+			}
+		}
+
+		hr {
+			width: 100%;
+		}
+	}
 }
 
-.section-featured h2 {
-	padding-bottom: .2em;
-}
-
-.section-featured p {
-	color: var(--font-light);
-}
-
-.featured-game h2 {
-	margin-bottom: .1em;
-	padding-left: 8%;
-}
-
-.featured-game .overlay {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.4+30,0.65+100 */
-	background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.65) 100%);
-	/* FF3.6-15 */
-	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.65) 100%);
-	/* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.65) 100%);
-	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
-	/* IE6-9 */
-}
-
-.featured-game .content {
-	margin-bottom: 2em;
-}
-
-.featured-game hr {
-	width: 100%;
-}
-
-.featured-article .diagonal-content,
-.featured-idea .diagonal-content {
+.featured__article .featured__content,
+.featured__idea .featured__content {
 	margin-top: 2em;
 }
 
-.featured-article,
-.featured-article p {
+.featured__article,
+.featured__article p {
 	color: var(--font-main);
 	background-color: white;
 }
 
-.featured-article h2,
-.featured-idea h2 {
+.featured__article h2,
+.featured__idea h2 {
 	padding-left: 8%;
 	padding-top: .3em;
 }
 
-.featured-idea {
+.featured__idea {
 	background-color: var(--brand-grey);
 	color: white;
 }
 
-.featured-idea h2 {
+.featured__idea h2 {
 	border-color: var(--font-white);
 }
 
-.featured-article .content,
-.featured-idea .content {
+.featured__article .content,
+.featured__idea .content {
 	padding-top: 0;
 }
 
@@ -645,33 +608,33 @@ h5[class^="flag"] {
 
 @media screen and (min-width: 550px) {
 
-	.section-featured {
+	.featured {
 		margin-top: 0;
 	}
 
-	.flex-container {
+	.featured__container {
 		display: flex;
 		flex-flow: row;
 		justify-content: center;
 		position: relative;
 	}
 
-	.diagonal-figure {
+	.featured__image {
 		flex-basis: 50%;
 		overflow: hidden;
 		z-index: 10;
 	}
 
-	.diagonal-content {
+	.featured__content {
 		flex-basis: 50%;
 		z-index: 3;
 	}
 
-	.featured-preview figure {
+	.featured__preview figure {
 		height: 100%;
 	}
 
-	.featured-game .overlay {
+	.featured__game .overlay {
 		display: flex;
 		flex-flow: column;
 		justify-content: flex-end;
@@ -683,28 +646,28 @@ h5[class^="flag"] {
 		clip-path: polygon(0% 0%, 75% 0%, 100% 100%, 0% 100%);
 	}
 
-	.featured-game h2 {
+	.featured__game h2 {
 		margin: 0;
 
 	}
 
-	.featured-article figure {
+	.featured__article figure {
 		clip-path: polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%);
 	}
 
-	.featured-article hr {
+	.featured__article hr {
 		margin-left: -20%;
 	}
 
-	.featured-idea hr {
+	.featured__idea hr {
 		margin-right: -5%;
 	}
 
-	.featured-idea figure {
+	.featured__idea figure {
 		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 20% 100%)
 	}
 
-	.featured-idea .diagonal-figure {
+	.featured__idea .featured__image {
 		order: 2;
 		flex-basis: 50%;
 	}
@@ -723,7 +686,7 @@ h5[class^="flag"] {
 	margin-bottom: 2px;
 }
 
-.feed > h2 {
+.feed>h2 {
 	display: none;
 }
 
@@ -757,23 +720,20 @@ a[class^="tag-"] {
 }
 
 @media screen and (min-width: 768px) {
-	
-	.feed {
-	}
-	
+
 	.feed .content {
 		background: white;
 		padding-right: 0;
 		padding-left: 10vw;
 		color: var(--zll-main);
 	}
-	
-	.feed > h2 {
+
+	.feed>h2 {
 		display: block;
 		margin-left: 10vw;
 		margin-top: 1em;
 	}
-	
+
 	.feed-preview {
 		display: flex;
 		border: 1px ridge lightgrey;
@@ -781,16 +741,16 @@ a[class^="tag-"] {
 		border-right: none;
 		margin: 1em 10vw 1em 0;
 	}
-	
+
 	.feed-1 {
 		margin-top: 0;
 	}
-	
+
 	.feed-preview .overlay {
 		position: relative;
 		flex: 1 1 50%;
 	}
-	
+
 	.feed-preview figure {
 		flex: 1 1 50%;
 	}
@@ -799,7 +759,7 @@ a[class^="tag-"] {
 		color: var(--zll-main);
 		margin-right: 20%;
 	}
-	
+
 	.feed-info {
 		margin-right: 0;
 		border-top: 1px solid grey;

@@ -6,9 +6,9 @@ $(document).ready(function () {
 		$(window).scroll(function (event) {
 			var st = $(this).scrollTop();
 			if (st > lastScrollTop) {
-				$('.top-nav').slideUp();
+				$('.header__nav1').slideUp();
 			} else {
-				$('.top-nav').slideDown();
+				$('.header__nav1').slideDown();
 			}
 			lastScrollTop = st;
 		});
